@@ -25,6 +25,8 @@ def camera_stream():
     # Draw a rectangle around the faces
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        font = cv2.FONT_HERSHEY_DUPLEX
+        cv2.putText(frame, "hello", (x + 6, y - 6), font, 1.0, (255, 255, 255), 1)
 
     # Display the resulting frame in browser
     return cv2.imencode('.jpg', frame)[1].tobytes()
